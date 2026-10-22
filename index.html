@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주전공·다전공 신청 안내 | 한양YK인터칼리지</title>
+<meta name="description" content="2026학년도 2학기 한양YK인터칼리지 주전공·다전공 신청 안내 — 2026-2학기 1학년·2학년 재학생">
+<meta property="og:title" content="2026학년도 2학기 주전공·다전공 신청 안내">
+<meta property="og:description" content="본인 학년을 선택해 신청 요건과 방법을 확인하세요. 신청 기간 11. 2.(월) ~ 11. 6.(금) 17:00">
+<style>
+  :root{
+    --navy:#0B2D5B;--navy-2:#123B70;--coral:#C8431C;--terra:#B23A17;--peach:#F2B49B;
+    --cream:#F3EEE6;--paper:#FBF7F1;--line:#E5DED0;--ink:#1F2937;--sub:#4B5563;--muted:#6B7280;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-serif;font-size:16px;line-height:1.7;word-break:keep-all}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  /* 상단 */
+  .top{background:var(--navy);color:#fff;padding:56px 0 120px;position:relative;overflow:hidden}
+  .top::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:56px solid rgba(242,180,155,.08)}
+  .kicker{font-size:13px;letter-spacing:2px;font-weight:700;color:var(--peach)}
+  .top h1{margin:10px 0 0;font-size:clamp(28px,5vw,42px);line-height:1.3;font-weight:800}
+  .top p.lead{margin:14px 0 0;color:#C9D3E3;max-width:560px}
+
+  /* 기간·D-day 카드 */
+  .status{position:relative;z-index:1;margin-top:-84px;background:#fff;border-radius:16px;box-shadow:0 20px 40px rgba(11,45,91,.12);display:grid;grid-template-columns:1.4fr 1fr;overflow:hidden}
+  .status .period{padding:26px 28px;border-left:6px solid var(--coral)}
+  .status small{display:block;font-size:13px;color:var(--muted)}
+  .status .date{font-size:clamp(20px,3.2vw,26px);font-weight:800;color:var(--navy);line-height:1.4}
+  .status .date em{font-style:normal;color:var(--coral)}
+  .status .path{margin-top:8px;font-size:14px;color:var(--sub)}
+  .status .dday{padding:26px 28px;background:var(--paper);display:flex;flex-direction:column;justify-content:center}
+  .status .dday b{font-size:clamp(28px,5vw,40px);line-height:1.15;color:var(--coral);font-weight:800;font-variant-numeric:tabular-nums}
+  .status .dday span{font-size:14px;color:var(--sub)}
+
+  section{padding:56px 0 0}
+  h2{margin:0 0 6px;font-size:24px;color:var(--navy);font-weight:800}
+  .h2sub{margin:0 0 22px;color:var(--muted);font-size:15px}
+
+  /* 학년 선택 */
+  .grades{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grade{display:flex;flex-direction:column;text-decoration:none;color:#fff;border-radius:16px;padding:28px 26px;position:relative;transition:transform .2s,box-shadow .2s}
+  .grade:hover,.grade:focus-visible{transform:translateY(-4px);box-shadow:0 16px 30px rgba(11,45,91,.22)}
+  .grade.g1{background:var(--navy)}
+  .grade.g2{background:var(--terra)}
+  .grade .who{font-size:14px;font-weight:700;color:var(--peach)}
+  .grade.g2 .who{color:#FFD9C7}
+  .grade .big{margin:4px 0 0;font-size:30px;font-weight:800;line-height:1.25}
+  .grade .what{margin:2px 0 16px;font-size:16px;color:rgba(255,255,255,.85)}
+  .grade ul{margin:0 0 22px;padding:0;list-style:none;font-size:15px;line-height:1.9}
+  .grade li::before{content:"✓";margin-right:8px;color:var(--peach);font-weight:800}
+  .grade.g2 li::before{color:#FFD9C7}
+  .grade .go{margin-top:auto;display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:10px;padding:13px 18px;font-weight:800;color:var(--navy)}
+  .grade.g2 .go{color:var(--terra)}
+
+  /* 일정 */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+  .step{padding:22px 24px;position:relative}
+  .step+.step{border-left:1px dashed var(--line)}
+  .step .no{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px;font-weight:800;align-items:center;justify-content:center}
+  .step.now .no{background:var(--coral)}
+  .step .when{margin-top:10px;font-weight:800;color:var(--coral)}
+  .step .tit{font-weight:800;color:var(--navy);font-size:17px}
+  .step p{margin:4px 0 0;font-size:14px;color:var(--sub)}
+
+  /* 공통 확인사항 */
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .rule{background:#fff;border-radius:14px;padding:22px;border-top:4px solid var(--navy)}
+  .rule .n{font-size:13px;font-weight:800;color:var(--coral)}
+  .rule h3{margin:2px 0 6px;font-size:17px;color:var(--navy)}
+  .rule p{margin:0;font-size:14.5px;color:var(--sub)}
+  .chips{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+  .chips span{font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--cream);color:var(--navy);white-space:nowrap}
+
+  /* 자료 */
+  .books{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .book{display:block;text-decoration:none;border-radius:6px 12px 12px 6px;padding:20px 20px 18px 26px;color:#fff;position:relative;min-height:150px;transition:transform .2s}
+  .book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;border-radius:6px 0 0 6px;background:rgba(0,0,0,.28)}
+  .book:hover{transform:translateY(-3px)}
+  .book.b1{background:var(--navy)}
+  .book.b2{background:var(--terra)}
+  .book.b3{background:#fff;color:var(--navy);border:1px solid var(--line)}
+  .book.b3::before{background:var(--coral)}
+  .book small{font-size:10px;letter-spacing:2px;font-weight:700;opacity:.8}
+  .book b{display:block;margin-top:6px;font-size:18px;line-height:1.35}
+  .book span{display:block;margin-top:6px;font-size:13px;opacity:.85}
+
+  footer{margin-top:64px;background:var(--navy);color:#C9D3E3;padding:32px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:#fff}
+
+  @media (max-width:760px){
+    .top{padding:40px 0 104px}
+    .status{grid-template-columns:1fr}
+    .status .period,.status .dday{padding:20px}
+    .grades,.rules,.books{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .step+.step{border-left:0;border-top:1px dashed var(--line)}
+    .grade .big{font-size:26px}
+    section{padding-top:44px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="kicker">HANYANG YK INTERCOLLEGE · 2026-2</div>
+    <h1>2026학년도 2학기<br>주전공·다전공 신청 안내</h1>
+    <p class="lead">학년마다 신청 방법과 요건이 다릅니다. 아래에서 본인 학년을 선택해 상세 안내를 꼭 확인한 뒤 신청해 주세요.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="status">
+    <div class="period">
+      <small>신청 기간 (한양YK인터칼리지 전용)</small>
+      <div class="date">2026. 11. 2.(월) ~ 11. 6.(금) <em>17:00</em></div>
+      <div class="path">HY-in 포털 로그인 → 신청 → <b>주전공배정신청(자율전공학부)</b></div>
+    </div>
+    <div class="dday" id="dday" aria-live="polite">
+      <b id="ddayBig">&nbsp;</b>
+      <span id="ddaySub">&nbsp;</span>
+    </div>
+  </div>
+
+  <section id="grade">
+    <h2>나는 어느 학년인가요?</h2>
+    <p class="h2sub">2026-2학기 기준 본인 학년을 선택하세요.</p>
+    <div class="grades">
+      <a class="grade g1" href="grade1.html">
+        <span class="who">2026-2학기</span>
+        <span class="big">1학년 재학생</span>
+        <span class="what">주전공·다전공 최초 신청</span>
+        <ul>
+          <li>진입요건: 융합기초교육과정 F 없이 이수 + 누적평점 2.0 이상</li>
+          <li>주전공 1개 + 다전공 1개 함께 신청</li>
+          <li>신청 전 아카데믹 어드바이저 상담 신청 가능</li>
+        </ul>
+        <span class="go">1학년 상세 안내 보기 <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="grade g2" href="grade2.html">
+        <span class="who">2026-2학기</span>
+        <span class="big">2학년 재학생</span>
+        <span class="what">신규 신청 및 변경 신청</span>
+        <ul>
+          <li>주전공 미배정자: 주전공 + 다전공 동시 신청</li>
+          <li>변경 희망자: 라이프디자인센터 어드바이저 상담 필수</li>
+          <li>주전공 변경은 재학 중 단 1회만 가능</li>
+        </ul>
+        <span class="go">2학년 상세 안내 보기 <span aria-hidden="true">&rarr;</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>신청부터 수강신청까지</h2>
+    <p class="h2sub">신청 이후 진행되는 일정입니다.</p>
+    <div class="steps">
+      <div class="step now" id="step1">
+        <span class="no">1</span>
+        <div class="when">2026. 11. 2. ~ 11. 6.</div>
+        <div class="tit">주전공·다전공 신청</div>
+        <p>신청 후 결재 전까지 신청내역은 '미결'로 표시됩니다.</p>
+      </div>
+      <div class="step">
+        <span class="no">2</span>
+        <div class="when">2027년 1월 중순</div>
+        <div class="tit">주전공 진입 확정</div>
+        <p>학기말 성적 확정 후 결재 → 교육소속 변경 (행정소속은 한양YK인터칼리지 유지)</p>
+      </div>
+      <div class="step">
+        <span class="no">3</span>
+        <div class="when">2027년 2월</div>
+        <div class="tit">수강신청</div>
+        <p>진입한 주전공 기준으로 수강신청합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>1·2학년 공통 확인사항</h2>
+    <p class="h2sub">학년과 관계없이 모든 신청자에게 적용됩니다.</p>
+    <div class="rules">
+      <div class="rule">
+        <div class="n">01</div>
+        <h3>인칼 프로그램 1개 이상 필수</h3>
+        <p>주전공·다전공 중 최소 1개는 반드시 한양YK인터칼리지 융합특화 프로그램이어야 합니다.</p>
+        <div class="chips"><span>💻 미래반도체</span><span>🏙️ 미래사회디자인</span><span>🧬 융합의과학</span><span>🦾 융합의공학</span><span>🧠 인지융합과학</span><span>📈 혁신공학경영</span></div>
+      </div>
+      <div class="rule">
+        <div class="n">02</div>
+        <h3>반드시 전용 기간에 신청</h3>
+        <p>전용 기간(11. 2. ~ 11. 6.)에는 다전공이 <b>경쟁 없이 배정</b>됩니다. 전체 다전공 신청기간(11. 9. ~ 11. 13. 예정)에는 경쟁 선발이 적용되고 <b style="color:var(--coral)">주전공은 신청할 수 없습니다.</b></p>
+      </div>
+      <div class="rule">
+        <div class="n">03</div>
+        <h3>교육과정 미리 확인</h3>
+        <p>전공에 따라 인정 교과목과 졸업요건이 다릅니다. 희망 학부(과)의 교육과정을 확인하세요.</p>
+        <p style="margin-top:10px"><a href="https://portal.hanyang.ac.kr" target="_blank" rel="noopener" style="color:var(--navy);font-weight:700">한양대학교 포털</a> → 수업 → 교육과정조회</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>전공선택 관련 자료</h2>
+    <p class="h2sub">책장을 넘기며 볼 수 있는 안내 책자입니다.</p>
+    <div class="books">
+      <a class="book b1" href="https://happysnow-maker.github.io/yk-major-guide/guide.html" target="_blank" rel="noopener">
+        <small>MAJOR SELECTION HANDBOOK</small>
+        <b>📘 전공선택 통합<br>퀵가이드북</b>
+        <span>이수요건 · 졸업요건 · 선택 가능 학부(과)</span>
+      </a>
+      <a class="book b2" href="https://happysnow-maker.github.io/yk-major-guide/manual.html" target="_blank" rel="noopener">
+        <small>MAJOR APPLICATION MANUAL</small>
+        <b>📕 주전공·다전공<br>신청 매뉴얼</b>
+        <span>HY-in 신청·변경 화면 단계별 안내</span>
+      </a>
+      <a class="book b3" href="https://happysnow-maker.github.io/yk-major-guide/" target="_blank" rel="noopener">
+        <small>LIBRARY</small>
+        <b>📚 전공선택<br>자료실 전체 보기</b>
+        <span>두 책자를 한곳에서</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      전공 신청 행정 문의 <a href="mailto:intercollege@hanyang.ac.kr">intercollege@hanyang.ac.kr</a><br>
+      전공 상담 <a href="mailto:lifedesign@hanyang.ac.kr">lifedesign@hanyang.ac.kr</a>
+    </div>
+    <div>한양YK인터칼리지 행정팀</div>
+  </div>
+</footer>
+
+<script>
+  // 신청 기간 상태 표시 (한국 시간 기준)
+  (function () {
+    var start = new Date('2026-11-02T00:00:00+09:00');
+    var end = new Date('2026-11-06T17:00:00+09:00');
+    var big = document.getElementById('ddayBig');
+    var sub = document.getElementById('ddaySub');
+    function kstDate(d) { return new Date(d.getTime() + 9 * 3600 * 1000).toISOString().slice(0, 10); }
+    function render() {
+      var now = new Date();
+      if (now < start) {
+        var days = Math.round((Date.parse(kstDate(start)) - Date.parse(kstDate(now))) / 86400000);
+        big.textContent = 'D-' + days;
+        sub.textContent = '신청 시작까지 ' + days + '일 남았습니다';
+      } else if (now < end) {
+        var ms = end - now, h = Math.floor(ms / 3600000), m = Math.floor(ms % 3600000 / 60000);
+        big.textContent = '신청 진행 중';
+        sub.textContent = '마감까지 ' + (h >= 24 ? Math.floor(h / 24) + '일 ' + (h % 24) + '시간' : h + '시간 ' + m + '분') + ' 남았습니다';
+      } else {
+        big.textContent = '신청 마감';
+        sub.textContent = '2027년 1월 중순 주전공 진입이 확정됩니다';
+        document.getElementById('step1').classList.remove('now');
+      }
+    }
+    render();
+    setInterval(render, 30000);
+  })();
+</script>
+</body>
+</html>
