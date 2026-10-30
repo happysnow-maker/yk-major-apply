@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오늘의 전공운 | 한양YK인터칼리지</title>
+<meta name="description" content="카드를 뒤집어 오늘의 전공운을 확인하세요. 2026-2 주(다)전공 신청 11. 6.(금) 17:00 마감">
+<meta property="og:title" content="오늘의 전공운 - 카드를 뒤집어 보세요">
+<meta property="og:description" content="2026-2 주(다)전공 신청 11. 6.(금) 17:00 마감">
+<meta property="og:image" content="tarot/card-back.png">
+<style>
+  :root{--gold:#E8C77A;--gold2:#F5DFA0;--ink:#EDE4FF;--sub:#B9A6E8;--bg:#120A26;--panel:#1D1140}
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{min-height:100dvh;background:radial-gradient(ellipse at 50% 0%,#2A1A5E 0%,var(--bg) 65%) fixed;color:var(--ink);
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;overflow-x:hidden}
+  .serif{font-family:'Gungsuh','궁서','Batang','바탕',serif}
+  a{color:inherit}
+
+  /* 반짝이는 별 */
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.2;animation:tw 3s ease-in-out infinite}
+  @keyframes tw{50%{opacity:.95;transform:scale(1.6)}}
+
+  .nav{position:relative;z-index:2;display:flex;justify-content:center;gap:18px;padding:12px 16px;background:rgba(10,5,24,.6);font-size:14px}
+  .nav a{text-decoration:none;color:var(--sub)}
+  .nav a.home{color:#F2B49B;font-weight:700}
+
+  header{position:relative;z-index:2;text-align:center;padding:40px 16px 8px}
+  header .sym{letter-spacing:8px;color:var(--gold)}
+  header small{display:block;margin-top:12px;font-size:13px;letter-spacing:3px;color:var(--sub);font-weight:700}
+  header h1{margin:6px 0 0;font-size:clamp(34px,7vw,52px);color:var(--gold2)}
+  header p{margin:10px 0 0;font-size:16px}
+  header p b{color:#FFD86B}
+  .hint{margin-top:18px;display:inline-block;padding:8px 18px;border:1px solid rgba(232,199,122,.5);border-radius:999px;font-size:14px;color:var(--gold2);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 8px rgba(232,199,122,.12)}}
+
+  /* 카드 */
+  .table{position:relative;z-index:2;display:flex;justify-content:center;gap:clamp(10px,3vw,34px);padding:34px 12px 10px;flex-wrap:nowrap}
+  .slot{width:min(28vw,230px);text-align:center}
+  .card{position:relative;width:100%;aspect-ratio:480/773;perspective:1200px;cursor:pointer;border:0;padding:0;background:none;display:block;
+    animation:float 4s ease-in-out infinite}
+  .slot:nth-child(2) .card{animation-delay:.6s}.slot:nth-child(3) .card{animation-delay:1.2s}
+  @keyframes float{50%{transform:translateY(-8px)}}
+  .card:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:14px}
+  .inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+  .card.open .inner{transform:rotateY(180deg)}
+  .side{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6%/4%;overflow:hidden;
+    box-shadow:0 14px 30px rgba(0,0,0,.5)}
+  .side img{width:100%;height:100%;display:block}
+  .front{transform:rotateY(180deg)}
+  .card:not(.open):hover .back{box-shadow:0 0 0 3px rgba(232,199,122,.6),0 0 40px rgba(232,199,122,.45)}
+  .card.open .front{box-shadow:0 0 50px rgba(255,216,107,.45),0 14px 30px rgba(0,0,0,.5)}
+  .pos{margin-top:12px;font-size:14px;font-weight:700;letter-spacing:2px;color:var(--sub)}
+
+  /* 반짝임 효과 */
+  .burst{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none;z-index:5}
+  .burst span{position:absolute;color:#FFD86B;font-size:18px;opacity:0;animation:fly .9s ease-out forwards}
+  @keyframes fly{0%{opacity:1;transform:translate(-50%,-50%) scale(.4)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.2)}}
+
+  .tools{position:relative;z-index:2;text-align:center;padding:14px 16px 0}
+  .tools button{appearance:none;border:1px solid rgba(232,199,122,.5);background:transparent;color:var(--gold2);font:inherit;font-size:14px;padding:8px 16px;border-radius:999px;cursor:pointer}
+  .tools button:hover{background:rgba(232,199,122,.12)}
+
+  /* 점괘 */
+  .reading{position:relative;z-index:2;max-width:720px;margin:28px auto 0;padding:0 16px;opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s;pointer-events:none}
+  .reading.show{opacity:1;transform:none;pointer-events:auto}
+  .box{background:rgba(29,17,64,.92);border:1px solid var(--gold);border-radius:16px;padding:26px 24px}
+  .box h2{margin:0;text-align:center;font-size:26px;color:var(--gold2)}
+  .rows{margin-top:16px;display:grid;gap:10px}
+  .row{background:#26174F;border-left:4px solid var(--gold);border-radius:8px;padding:12px 16px;font-size:15px;line-height:1.7}
+  .row b{color:var(--gold2)}
+  .final{margin-top:18px;text-align:center;border:2px solid var(--gold);background:#2B1240;border-radius:12px;padding:20px 16px}
+  .final .big{font-size:22px;font-weight:700;line-height:1.55;color:#fff}
+  .final p{margin:8px 0 0;font-size:15px;color:#FFD3D3}
+  .cta{margin-top:22px;text-align:center}
+  .cta a.main{display:inline-block;padding:15px 34px;border-radius:999px;background:var(--gold);color:#1D1140;font-size:18px;font-weight:900;text-decoration:none;animation:pulse 2s ease-in-out infinite}
+  .cta .links{margin-top:14px;font-size:14px;color:var(--sub)}
+  .cta .links a{color:var(--gold2);margin:0 6px}
+
+  footer{position:relative;z-index:2;text-align:center;padding:40px 16px 30px;font-size:13px;color:#8E7CC4;line-height:1.8}
+  footer a{color:var(--gold2)}
+  @media (max-width:480px){.pos{font-size:12px;letter-spacing:1px}.box{padding:20px 16px}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<nav class="nav"><a class="home" href="./">&larr; 신청 안내 홈</a><a href="grade1.html">1학년 안내</a><a href="grade2.html">2학년 안내</a></nav>
+
+<header>
+  <div class="sym">&#10022; &#9790; &#10022; &#9728; &#10022; &#9789; &#10022;</div>
+  <small>인칼 1·2학년을 위한 리딩</small>
+  <h1 class="serif">오늘의 전공운</h1>
+  <p id="dday">주(다)전공 신청 마감 <b>11. 6.(금) 17:00</b></p>
+  <div class="hint">카드를 눌러 한 장씩 뒤집어 보세요</div>
+</header>
+
+<section class="table" aria-label="타로 카드 세 장">
+  <div class="slot"><button class="card" data-i="0" aria-label="첫 번째 카드, 과거 뒤집기"><div class="inner"><div class="side back"><img src="tarot/card-back.png" alt=""></div><div class="side front"><img src="tarot/card-1.png" alt="과거: 미루는 자 (역방향) - 나중에 해야지를 세 번 이상 말한 기운"></div></div></button><div class="pos">I · 과거</div></div>
+  <div class="slot"><button class="card" data-i="1" aria-label="두 번째 카드, 현재 뒤집기"><div class="inner"><div class="side back"><img src="tarot/card-back.png" alt=""></div><div class="side front"><img src="tarot/card-2.png" alt="현재: 열린 관문 (정방향) - 지금 HY-in의 문이 열려 있다, 단 금요일 17:00까지"></div></div></button><div class="pos">II · 현재</div></div>
+  <div class="slot"><button class="card" data-i="2" aria-label="세 번째 카드, 미래 뒤집기"><div class="inner"><div class="side back"><img src="tarot/card-back.png" alt=""></div><div class="side front"><img src="tarot/card-3.png" alt="미래: 나의 전공 (정방향, 조건부) - 신청을 마친 자에게만 원하는 전공이 찾아온다"></div></div></button><div class="pos">III · 미래</div></div>
+</section>
+<div class="tools"><button id="all">한 번에 모두 뒤집기</button> <button id="reset">카드 다시 섞기</button></div>
+
+<section class="reading" id="reading" aria-live="polite">
+  <div class="box">
+    <h2 class="serif">&#10022; 점괘 풀이 &#10022;</h2>
+    <div class="rows">
+      <div class="row"><b>과거 · 미루는 자 (역방향)</b><br>"나중에 해야지"를 세 번 이상 말한 기운이 보입니다. 이제 그 말과 작별할 때입니다.</div>
+      <div class="row"><b>현재 · 열린 관문 (정방향)</b><br>지금 <b>HY-in 포털 → 신청 → 주전공배정신청(자율전공학부)</b>의 문이 열려 있습니다. 단, <b>11. 6.(금) 17:00</b>까지.</div>
+      <div class="row"><b>미래 · 나의 전공 (정방향, 조건부)</b><br>신청을 마친 자에게만 원하는 전공과, 이 전용 기간에만 주어지는 <b>경쟁 없는 다전공 배정</b>이 찾아옵니다.</div>
+      <div class="row"><b>1학년의 점괘</b> &nbsp;주전공 1개 + 다전공 1개를 함께 신청하라. (융합기초교육과정 F 없이 이수 + 누적평점 2.0 이상)<br>
+        <b>2학년의 점괘</b> &nbsp;주전공이 없다면 주전공 + 다전공을 동시에. 바꾸려면 1개만 변경하되 아카데믹 어드바이저 상담을 잊지 마라.<br>
+        <b>공통의 계시</b> &nbsp;주전공·다전공 중 하나는 반드시 한양YK인터칼리지 융합특화 프로그램.</div>
+    </div>
+    <div class="final">
+      <div class="big serif">점괘는 바뀔 수 있어도,<br>마감은 바뀌지 않습니다.</div>
+      <p>기간 내 신청하지 않으면 신청 의사가 없는 것으로 간주하며, 개별 연락드리지 않습니다.</p>
+    </div>
+    <div class="cta">
+      <a class="main" href="./">&#9733; 운명 바꾸러 가기 → 신청 안내</a>
+      <div class="links"><a href="grade1.html">1학년 상세 안내</a>·<a href="grade2.html">2학년 상세 안내</a>·<a href="https://happysnow-maker.github.io/yk-major-guide/manual.html">신청 매뉴얼</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  전공 신청 행정 문의 <a href="mailto:intercollege@hanyang.ac.kr">intercollege@hanyang.ac.kr</a> · 전공 상담 <a href="mailto:lifedesign@hanyang.ac.kr">lifedesign@hanyang.ac.kr</a><br>
+  한양YK인터칼리지 행정팀 · 본 운세는 재미로 보시고, 마감은 진지하게 보세요.
+</footer>
+
+<script>
+(function(){
+  // 배경 별
+  var st=document.getElementById('stars');
+  for(var i=0;i<70;i++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*3)+'s';st.appendChild(s);}
+
+  // 마감까지 남은 날 (한국 시간 기준)
+  var end=new Date('2026-11-06T17:00:00+09:00'), now=new Date(), el=document.getElementById('dday');
+  function kst(d){return new Date(d.getTime()+9*3600e3).toISOString().slice(0,10);}
+  var days=Math.round((Date.parse(kst(end))-Date.parse(kst(now)))/864e5);
+  if(now>=end) el.innerHTML='주(다)전공 신청이 <b>마감</b>되었습니다';
+  else if(days===0) el.innerHTML='오늘 <b>17:00 마감</b> · 지금이 마지막 기회';
+  else el.innerHTML='주(다)전공 신청 마감까지 <b>D-'+days+'</b> · 11. 6.(금) 17:00';
+
+  var cards=[].slice.call(document.querySelectorAll('.card')), reading=document.getElementById('reading');
+  function sparkle(card){
+    var b=document.createElement('div');b.className='burst';
+    for(var i=0;i<12;i++){var s=document.createElement('span');s.textContent=i%3?'✦':'★';var a=i/12*Math.PI*2,r=90+Math.random()*50;
+      s.style.setProperty('--dx',Math.cos(a)*r+'px');s.style.setProperty('--dy',Math.sin(a)*r+'px');s.style.animationDelay=(Math.random()*.15)+'s';b.appendChild(s);}
+    card.appendChild(b);setTimeout(function(){b.remove();},1200);
+  }
+  function check(){
+    if(cards.every(function(c){return c.classList.contains('open');})){
+      setTimeout(function(){reading.classList.add('show');reading.scrollIntoView({behavior:'smooth',block:'start'});},700);
+    }
+  }
+  function flip(c){
+    if(c.classList.contains('open')) return;
+    c.classList.add('open'); c.setAttribute('aria-label',c.getAttribute('aria-label').replace(' 뒤집기',' (공개됨)'));
+    setTimeout(function(){sparkle(c);},350); check();
+  }
+  cards.forEach(function(c){c.addEventListener('click',function(){flip(c);});});
+  document.getElementById('all').addEventListener('click',function(){cards.forEach(function(c,i){setTimeout(function(){flip(c);},i*350);});});
+  document.getElementById('reset').addEventListener('click',function(){
+    reading.classList.remove('show');
+    cards.forEach(function(c){c.classList.remove('open');c.setAttribute('aria-label',c.getAttribute('aria-label').replace(' (공개됨)',' 뒤집기'));});
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
