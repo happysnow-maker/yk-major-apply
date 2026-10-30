@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이번 역은 주(다)전공 신청역입니다 | 한양YK인터칼리지</title>
+<meta name="description" content="후회는 환승이 안 됩니다. 2026-2 주(다)전공 신청 11. 6.(금) 17:00 마감">
+<meta property="og:title" content="이번 역은 주(다)전공 신청역입니다">
+<meta property="og:description" content="후회는 환승이 안 됩니다. 11. 6.(금) 17:00 마감">
+<meta property="og:image" content="mail/1106-comic-v2.jpg">
+<style>
+  :root{--line:#00A84D;--ink:#111;--sub:#4B5563;--led:#FF9A1F}
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:#E9ECEF;color:var(--ink);font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;line-height:1.7}
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;background:#fff;min-height:100dvh;box-shadow:0 0 30px rgba(0,0,0,.08)}
+  .nav{display:flex;justify-content:center;gap:18px;padding:10px 16px;background:#1F2937;font-size:14px}
+  .nav a{color:#D1D5DB;text-decoration:none}.nav a.home{color:#7CFFB2;font-weight:700}
+
+  /* 전광판 */
+  .led{background:#111;border-top:8px solid var(--line);padding:14px 0;overflow:hidden;white-space:nowrap}
+  .led span{display:inline-block;padding-left:100%;animation:scroll 16s linear infinite;color:var(--led);font-size:22px;font-weight:800;letter-spacing:1px;
+    text-shadow:0 0 6px rgba(255,154,31,.8);
+    -webkit-mask-image:radial-gradient(circle,#000 62%,transparent 64%);-webkit-mask-size:4px 4px;mask-image:radial-gradient(circle,#000 62%,transparent 64%);mask-size:4px 4px}
+  @keyframes scroll{to{transform:translateX(-100%)}}
+
+  /* 역명판 */
+  .sign{display:flex;align-items:stretch;border-bottom:1px solid #DDE1E5}
+  .sign .side{flex:1;padding:14px 16px;font-size:14px;color:var(--sub)}
+  .sign .side b{display:block;font-size:17px;color:var(--ink)}
+  .sign .side.r{text-align:right}
+  .sign .now{flex:1.6;text-align:center;padding:14px 10px;background:var(--line);color:#fff;position:relative}
+  .sign .now small{font-size:13px;opacity:.9}
+  .sign .now b{display:block;font-size:clamp(22px,5vw,30px);line-height:1.25}
+  .sign .now em{font-style:normal;font-size:12px;letter-spacing:1px;opacity:.85}
+
+  /* 안내방송 */
+  .announce{padding:26px 20px 6px;text-align:center}
+  .play{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:12px;background:var(--line);color:#fff;font:inherit;font-size:19px;font-weight:900;padding:15px 28px;border-radius:999px;box-shadow:0 6px 0 #047A3A}
+  .play:active{transform:translateY(3px);box-shadow:0 3px 0 #047A3A}
+  .play .ic{display:inline-flex;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--line);align-items:center;justify-content:center;font-size:15px}
+  .play.on{background:#E5482A;box-shadow:0 6px 0 #9E2A14}
+  .note{margin:10px 0 0;font-size:13px;color:#6B7280}
+  .speech{margin:18px auto 0;max-width:560px;min-height:116px;background:#111;color:#7CFFB2;border-radius:12px;padding:16px 18px;font-size:20px;font-weight:800;line-height:1.55;text-align:center;position:relative}
+  .speech .echo{display:inline-block;animation:echo 1.6s ease-out both}
+  .speech .echo.e2{animation-delay:.7s;opacity:.65}
+  .speech .echo.e3{animation-delay:1.4s;opacity:.35}
+  @keyframes echo{from{opacity:0;transform:scale(1.25);filter:blur(3px)}to{filter:none}}
+  .eq{display:flex;gap:4px;justify-content:center;height:22px;margin-top:10px;opacity:0;transition:opacity .3s}
+  .eq.on{opacity:1}
+  .eq i{width:5px;background:#7CFFB2;border-radius:2px;animation:eq .8s ease-in-out infinite}
+  .eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.45s}.eq i:nth-child(5){animation-delay:.6s}
+  @keyframes eq{0%,100%{height:5px}50%{height:22px}}
+
+  .ad{padding:28px 20px 0;text-align:center}
+  .ad .kick{font-size:13px;font-weight:800;letter-spacing:2px;color:var(--line)}
+  .ad h1{margin:6px 0 0;font-size:clamp(28px,6vw,38px);line-height:1.25;letter-spacing:-1px}
+  .ad h1 span{background:#FFE14D;padding:0 6px}
+  .ad p{margin:8px 0 0;font-size:17px;font-weight:700;color:#374151}
+  .ad p b{color:#E5482A}
+  .comic{padding:20px 16px 0}
+  .comic img{display:block;width:100%;height:auto;border-radius:6px}
+
+  .list{padding:26px 20px 0}
+  .list h2{margin:0 0 10px;font-size:20px}
+  .item{display:flex;gap:12px;padding:12px 0;border-top:1px solid #DDE1E5}
+  .item:first-of-type{border-top:2px solid #111}
+  .item:last-of-type{border-bottom:2px solid #111}
+  .item .n{flex:none;width:26px;height:26px;border-radius:50%;background:#E5482A;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .item b{display:block}
+  .item span{color:var(--sub);font-size:15px}
+  .cta{padding:28px 20px 0;text-align:center}
+  .cta a.go{display:inline-block;padding:16px 32px;border-radius:10px;background:var(--line);color:#fff;font-size:19px;font-weight:900;text-decoration:none;box-shadow:0 6px 0 #047A3A}
+  .cta .links{margin-top:14px;font-size:14px;color:var(--sub)}
+  .cta .links a{color:#047A3A;font-weight:700;margin:0 6px}
+  footer{padding:30px 20px 34px;text-align:center;font-size:13px;color:#6B7280;line-height:1.8}
+  footer a{color:#047A3A}
+  .bar{height:10px;background:var(--line)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav"><a class="home" href="./">&larr; 신청 안내 홈</a><a href="grade1.html">1학년 안내</a><a href="grade2.html">2학년 안내</a></nav>
+
+  <div class="led" aria-hidden="true"><span>이번 역은 주(다)전공 신청역입니다 &nbsp;&#9654;&nbsp; 내리실 문은 HY-in입니다 &nbsp;&#9654;&nbsp; 11. 6.(금) 17:00에 문이 닫힙니다 &nbsp;&#9654;&nbsp; This stop is Major Application</span></div>
+
+  <div class="sign">
+    <div class="side">이전 역<b>&larr; 고민역</b></div>
+    <div class="now"><small>이번 역</small><b>주(다)전공 신청</b><em>MAJOR APPLICATION</em></div>
+    <div class="side r">다음 역<b>전공확정역 &rarr;</b></div>
+  </div>
+
+  <section class="announce">
+    <button class="play" id="play" aria-pressed="false"><span class="ic">&#9654;</span><span id="playTxt">안내방송 듣기</span></button>
+    <p class="note">소리가 납니다. 이어폰을 확인해 주세요. (음악은 지하철 분위기로 새로 만든 창작 차임입니다)</p>
+    <div class="speech" id="speech" aria-live="polite">버튼을 누르면 안내방송이 나옵니다.</div>
+    <div class="eq" id="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <section class="ad">
+    <div class="kick">한양YK인터칼리지 &middot; 2026-2학기 1·2학년 재학생</div>
+    <h1>후회는 <span>환승</span>이 안 됩니다.</h1>
+    <p id="deadline"><b>11. 6.(금) 17:00</b>, 주(다)전공 신청(변경)이 마감됩니다.</p>
+  </section>
+
+  <div class="comic"><img src="mail/1106-comic-v2.jpg" alt="4컷 만화: 1) 금요일 오전 10시, 하이리온이 5시까지라며 여유를 부림 2) 오후 5시 1분, HY-in에 '신청 기간이 아닙니다'가 뜨고 저장 버튼이 사라짐 3) 다음 주 전체 다전공 신청기간에는 주전공 신청이 안 되고 다전공은 경쟁 선발 4) 2027년 2월 수강신청 날, 다음 신청 기회(2027-1학기 4~5월 초)까지 기다려야 함"></div>
+
+  <section class="list">
+    <h2>이번 역을 지나치면 생기는 일</h2>
+    <div class="item"><span class="n">1</span><div><b>17:00 이후에는 신청·변경 불가</b><span>HY-in 신청 화면에서 저장 버튼이 사라지고, 전공을 선택할 수 없습니다.</span></div></div>
+    <div class="item"><span class="n">2</span><div><b>신청 의사가 없는 것으로 간주</b><span>신청 여부는 개별적으로 확인하거나 연락드리지 않습니다.</span></div></div>
+    <div class="item"><span class="n">3</span><div><b>전체 다전공 신청기간(11. 9.~11. 13. 예정)에는</b><span>주전공은 신청할 수 없고, 다전공은 타 학과와 동일하게 경쟁 선발됩니다.</span></div></div>
+    <div class="item"><span class="n">4</span><div><b>다음 신청·변경 기회는 2027-1학기 신청 기간(4월~5월 초)</b><span>1학년과 주전공 미배정 2학년은 그때까지 주전공 없이 2027-1학기 수강신청을 하게 되고, 변경 희망자는 현재 전공이 그대로 유지됩니다.</span></div></div>
+  </section>
+
+  <section class="cta">
+    <a class="go" href="./">지금 내리세요 &rarr; 신청 안내 보기</a>
+    <div class="links"><a href="grade1.html">1학년 상세 안내</a>|<a href="grade2.html">2학년 상세 안내</a>|<a href="https://happysnow-maker.github.io/yk-major-guide/manual.html">신청 매뉴얼</a></div>
+  </section>
+
+  <footer>
+    HY-in 포털 &rarr; 신청 &rarr; 주전공배정신청(자율전공학부)<br>
+    전공 신청 행정 문의 <a href="mailto:intercollege@hanyang.ac.kr">intercollege@hanyang.ac.kr</a> &middot; 전공 상담 <a href="mailto:lifedesign@hanyang.ac.kr">lifedesign@hanyang.ac.kr</a><br>
+    이 광고는 한양YK인터칼리지 행정팀이 학생 여러분의 전공을 응원하며 게재합니다.
+  </footer>
+  <div class="bar"></div>
+</div>
+
+<script>
+(function(){
+  // 마감 문구 (한국 시간 기준)
+  var end=new Date('2026-11-06T17:00:00+09:00'),now=new Date(),dl=document.getElementById('deadline');
+  function kst(d){return new Date(d.getTime()+9*3600e3).toISOString().slice(0,10);}
+  if(now>=end) dl.innerHTML='주(다)전공 신청(변경)이 <b>마감</b>되었습니다.';
+  else if(kst(now)===kst(end)) dl.innerHTML='<b>오늘 17:00</b>, 주(다)전공 신청(변경)이 마감됩니다.';
+
+  var btn=document.getElementById('play'),txt=document.getElementById('playTxt'),speech=document.getElementById('speech'),eq=document.getElementById('eq');
+  var ctx=null,playing=false,timers=[],nodes=[];
+
+  // 창작 차임: 국악 5음계(궁상각치우) 느낌의 가야금풍 뜯는 소리 + 낮은 지속음
+  function pluck(freq,t,dur,vol){
+    var o=ctx.createOscillator(),o2=ctx.createOscillator(),g=ctx.createGain(),f=ctx.createBiquadFilter();
+    o.type='triangle';o2.type='sine';o.frequency.value=freq;o2.frequency.value=freq*2.01;
+    f.type='lowpass';f.frequency.setValueAtTime(3200,t);f.frequency.exponentialRampToValueAtTime(700,t+dur);
+    g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+0.012);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    var g2=ctx.createGain();g2.gain.value=0.25;
+    o.connect(f);o2.connect(g2);g2.connect(f);f.connect(g);g.connect(ctx.destination);
+    o.start(t);o2.start(t);o.stop(t+dur+0.05);o2.stop(t+dur+0.05);nodes.push(o,o2);
+  }
+  function drone(freq,t,dur){
+    var o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=freq;
+    g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(0.05,t+0.4);g.gain.setValueAtTime(0.05,t+dur-0.6);g.gain.linearRampToValueAtTime(0.0001,t+dur);
+    o.connect(g);g.connect(ctx.destination);o.start(t);o.stop(t+dur+0.1);nodes.push(o);
+  }
+  var N={D4:293.66,E4:329.63,G4:392,A4:440,C5:523.25,D5:587.33,E5:659.25,G5:783.99,A5:880};
+  // [음, 시작(박), 길이(박)] — 새로 만든 선율
+  var tune=[['A4',0,1],['C5',1,.5],['D5',1.5,.5],['E5',2,1],['D5',3,.5],['C5',3.5,.5],['A4',4,1.5],
+            ['G4',6,.5],['A4',6.5,.5],['C5',7,1],['D5',8,.5],['E5',8.5,.5],['G5',9,1],['E5',10,.5],['D5',10.5,.5],['E5',11,2.5]];
+  function chime(start){
+    var beat=0.36;
+    tune.forEach(function(n){pluck(N[n[0]],start+n[1]*beat,Math.max(0.9,n[2]*beat*1.8),0.22);});
+    drone(N.A4/2,start,13.5*beat+1);drone(N.E4/2,start,13.5*beat+1);
+    return 13.5*beat+0.6;
+  }
+  function say(text,rate,pitch){
+    return new Promise(function(res){
+      if(!('speechSynthesis' in window)){setTimeout(res,1600);return;}
+      var u=new SpeechSynthesisUtterance(text);u.lang='ko-KR';u.rate=rate||0.95;u.pitch=pitch||1;
+      var v=speechSynthesis.getVoices().filter(function(x){return /ko/i.test(x.lang);});if(v.length)u.voice=v[0];
+      u.onend=res;u.onerror=res;speechSynthesis.speak(u);
+      timers.push(setTimeout(res,9000));
+    });
+  }
+  function show(html){speech.innerHTML=html;}
+  function wait(ms){return new Promise(function(r){timers.push(setTimeout(r,ms));});}
+  function stop(){
+    playing=false;timers.forEach(clearTimeout);timers=[];
+    nodes.forEach(function(n){try{n.stop();}catch(e){}});nodes=[];
+    if('speechSynthesis' in window)speechSynthesis.cancel();
+    btn.classList.remove('on');btn.setAttribute('aria-pressed','false');txt.textContent='안내방송 다시 듣기';eq.classList.remove('on');
+  }
+  async function run(){
+    playing=true;btn.classList.add('on');btn.setAttribute('aria-pressed','true');txt.textContent='안내방송 멈추기';eq.classList.add('on');
+    ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')await ctx.resume();
+    show('♪ ♬ ♪');
+    var len=chime(ctx.currentTime+0.1);await wait(len*1000*0.55);if(!playing)return;
+    show('이번 역은<br><span class="echo">주(다)전공 신청역</span>');
+    await wait(len*1000*0.45);if(!playing)return;
+    await say('이번 역은, 주전공 신청, 주전공 신청역입니다.',0.92);if(!playing)return;
+    show('<span class="echo">신청역~</span> <span class="echo e2">신청역~</span> <span class="echo e3">신청역~</span>');
+    await say('신청역. 신청역.',0.8,0.9);if(!playing)return;
+    show('내리실 문은<br><span style="color:#FFE14D">HY-in</span>입니다');
+    await say('내리실 문은, 에이치와이 인입니다.',0.95);if(!playing)return;
+    show('이번 역 문은<br><span style="color:#FF7A5C">11월 6일(금) 오후 5시</span>에 닫힙니다');
+    await say('이번 역의 문은, 십일월 육일 금요일, 오후 다섯 시에 닫힙니다. 후회는, 환승이 안 됩니다.',0.95);if(!playing)return;
+    show('후회는 환승이 안 됩니다.<br><span style="font-size:15px;color:#D1D5DB">지금 아래 버튼으로 내리세요 ↓</span>');
+    chime(ctx.currentTime+0.2);await wait(5200);
+    stop();
+  }
+  btn.addEventListener('click',function(){playing?stop():run();});
+  if('speechSynthesis' in window){speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=function(){speechSynthesis.getVoices();};}
+})();
+</script>
+</body>
+</html>
