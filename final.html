@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FINAL CALL · 나의 전공행 IC2026편 | 한양YK인터칼리지</title>
+<meta name="description" content="주(다)전공 신청 탑승 마감까지 남은 시간. 11. 6.(금) 17:00 마감">
+<meta property="og:title" content="FINAL CALL · 나의 전공행 IC2026편, 17:00 탑승 마감">
+<meta property="og:description" content="2026-2 주(다)전공 신청 마감까지 남은 시간을 확인하세요.">
+<style>
+  :root{--bg:#0B1220;--board:#111827;--amber:#FFC400;--red:#E5482A;--navy:#0B2D5B;--sub:#9CA3AF}
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{min-height:100dvh;background:var(--bg);color:#E5E7EB;font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;line-height:1.7;word-break:keep-all}
+  a{color:inherit}
+  .mono{font-family:'Consolas','Courier New',monospace}
+  .nav{display:flex;justify-content:center;gap:18px;padding:10px 16px;background:#060A13;font-size:14px}
+  .nav a{color:var(--sub);text-decoration:none}.nav a.home{color:#F2B49B;font-weight:700}
+  .alert{background:var(--red);color:#fff;text-align:center;font-weight:800;padding:10px 14px;font-size:15px;animation:blink 1.6s steps(2,start) infinite}
+  @keyframes blink{50%{background:#B5301A}}
+  .wrap{max-width:860px;margin:0 auto;padding:0 16px 40px}
+
+  .board{margin-top:26px;background:var(--board);border-radius:12px;padding:20px 18px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  .board h1{margin:0;font-size:22px;letter-spacing:3px;color:var(--amber);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .board h1 small{font-size:14px;color:var(--sub);letter-spacing:1px}
+  table{width:100%;border-collapse:collapse;margin-top:14px;font-size:15px}
+  th{text-align:left;color:#6B7280;font-size:12px;font-weight:600;padding:0 6px 6px 0}
+  td{padding:10px 6px 10px 0;border-top:1px solid #1F2937;color:var(--sub)}
+  td:first-child{white-space:nowrap}
+  td.ok{color:#34D399;text-align:right;white-space:nowrap}
+  tr.final td{color:var(--amber);font-weight:700;font-size:17px;border-top:1px solid #374151;border-bottom:1px solid #374151}
+  tr.final td.dest{color:#fff}
+  .fc{display:inline-block;background:var(--red);color:#fff;padding:2px 10px;font-size:14px;letter-spacing:1px;white-space:nowrap;animation:blink 1s steps(2,start) infinite}
+
+  /* 카운트다운 */
+  .count{margin-top:26px;text-align:center}
+  .count .lbl{font-size:14px;font-weight:800;letter-spacing:3px;color:var(--red)}
+  .flaps{margin-top:12px;display:flex;justify-content:center;align-items:flex-start;gap:clamp(6px,2vw,14px)}
+  .unit{text-align:center}
+  .digits{display:flex;gap:4px}
+  .flap{position:relative;width:clamp(42px,10vw,78px);height:clamp(62px,15vw,112px);background:#1F2937;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    font-size:clamp(40px,10vw,76px);font-weight:700;color:var(--amber);overflow:hidden;box-shadow:inset 0 -3px 0 rgba(0,0,0,.4)}
+  .flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:#0B1220}
+  .flap.flip{animation:flip .35s ease-in}
+  @keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(90deg);filter:brightness(.6)}100%{transform:rotateX(0)}}
+  .unit span{display:block;margin-top:6px;font-size:13px;color:var(--sub);letter-spacing:2px}
+  .colon{font-size:clamp(36px,8vw,64px);color:var(--amber);line-height:clamp(62px,15vw,112px)}
+  .status{margin-top:16px;font-size:clamp(17px,3.4vw,21px);font-weight:800;color:#fff}
+  .status b{color:var(--amber)}
+
+  .pa{margin-top:22px;text-align:center}
+  .pa button{appearance:none;border:2px solid var(--amber);background:transparent;color:var(--amber);font:inherit;font-weight:800;font-size:16px;padding:10px 22px;border-radius:999px;cursor:pointer}
+  .pa button.on{background:var(--amber);color:#111}
+  .pa p{margin:8px 0 0;font-size:13px;color:#6B7280}
+  .pa .say{margin:12px auto 0;max-width:560px;min-height:56px;font-size:16px;color:#FDE68A}
+
+  /* 탑승권 */
+  .pass{margin-top:30px;background:#fff;color:#111;border-radius:14px;display:flex;overflow:hidden}
+  .pass .main{flex:1;padding:0 0 16px}
+  .pass .head{background:var(--navy);color:#fff;padding:10px 18px;font-size:13px;font-weight:800;letter-spacing:1px}
+  .pass .head em{font-style:normal;color:#F2B49B}
+  .route{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 4px}
+  .route small{display:block;font-size:11px;color:#6B7280}
+  .route b{font-size:clamp(22px,5vw,30px);color:var(--navy);line-height:1.2}
+  .route .pl{font-size:24px;color:var(--red)}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 22px;padding:8px 18px 0;font-size:14px}
+  .meta small{display:block;font-size:11px;color:#6B7280}
+  .meta .red{color:var(--red);font-size:17px}
+  .pass .stub{width:28%;min-width:150px;border-left:3px dashed #C9CED4;background:#FBF7F1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 10px;text-align:center}
+  .stub small{font-size:11px;color:#6B7280}.stub b{font-size:20px;color:var(--navy)}.stub .no{font-size:15px;color:var(--red)}
+  .bar{margin-top:8px;font-size:20px;letter-spacing:-1px;color:#111}
+
+  .serious{margin-top:24px;background:var(--navy);border-radius:12px;padding:22px 20px;color:#D7E1F0;font-size:15px}
+  .serious .t{font-size:13px;font-weight:800;letter-spacing:1px;color:#F2B49B}
+  .serious .g{margin:10px 0 0;font-family:'Gungsuh','궁서','Batang','바탕',serif;font-size:clamp(18px,3.6vw,22px);line-height:1.55;font-weight:700;color:#fff}
+  .serious ul{margin:12px 0 0;padding-left:18px}
+
+  .cta{margin-top:28px;text-align:center}
+  .cta a.go{display:inline-block;padding:16px 34px;border-radius:12px;background:var(--red);color:#fff;font-size:20px;font-weight:900;text-decoration:none;box-shadow:0 6px 0 #9E2A14}
+  .cta .links{margin-top:14px;font-size:14px;color:var(--sub)}
+  .cta .links a{color:#F2B49B;margin:0 6px}
+  .done{margin-top:18px;background:#ECFDF5;color:#065F46;border-radius:10px;padding:12px 16px;font-size:14.5px;text-align:center}
+  footer{margin-top:30px;text-align:center;font-size:13px;color:#6B7280;line-height:1.8}
+  footer a{color:#F2B49B}
+  @media (max-width:560px){
+    .pass{flex-direction:column}.pass .stub{width:100%;border-left:0;border-top:3px dashed #C9CED4;flex-direction:row;gap:16px;flex-wrap:wrap}
+    .hide-m{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="home" href="./">&larr; 신청 안내 홈</a><a href="grade1.html">1학년 안내</a><a href="grade2.html">2학년 안내</a></nav>
+<div class="alert" id="alert">나의 전공행 IC2026편 &mdash; 마지막 탑승 안내 중</div>
+
+<div class="wrap">
+  <section class="board">
+    <h1 class="mono"><span>&#9992; DEPARTURES</span><small id="today">2026.11.06 FRI</small></h1>
+    <table class="mono">
+      <tr><th>시각</th><th class="hide-m">편명</th><th>목적지</th><th style="text-align:right">상태</th></tr>
+      <tr><td>11/02 09:00</td><td class="hide-m">EXE01</td><td>전공신청.exe</td><td class="ok">출발완료</td></tr>
+      <tr><td>11/04 --:--</td><td class="hide-m">TAROT</td><td>오늘의 전공운</td><td class="ok">출발완료</td></tr>
+      <tr><td>11/06 09:00</td><td class="hide-m">LINE2</td><td>환승 불가역</td><td class="ok">출발완료</td></tr>
+      <tr class="final"><td>11/06 <span style="color:#fff">17:00</span></td><td class="hide-m">IC2026</td><td class="dest">나의 전공</td><td style="text-align:right"><span class="fc" id="fc">FINAL CALL</span></td></tr>
+    </table>
+  </section>
+
+  <section class="count" aria-live="polite">
+    <div class="lbl" id="lbl">탑승 마감까지 남은 시간</div>
+    <div class="flaps mono" id="flaps" aria-hidden="true">
+      <div class="unit"><div class="digits"><div class="flap" data-k="d0">0</div><div class="flap" data-k="d1">0</div></div><span>시간</span></div>
+      <div class="colon">:</div>
+      <div class="unit"><div class="digits"><div class="flap" data-k="d2">0</div><div class="flap" data-k="d3">0</div></div><span>분</span></div>
+      <div class="colon">:</div>
+      <div class="unit"><div class="digits"><div class="flap" data-k="d4">0</div><div class="flap" data-k="d5">0</div></div><span>초</span></div>
+    </div>
+    <div class="status" id="status">&nbsp;</div>
+  </section>
+
+  <section class="pa">
+    <button id="pa" aria-pressed="false">&#128264; 탑승 안내방송 듣기</button>
+    <p>소리가 납니다. 이어폰을 확인해 주세요.</p>
+    <div class="say" id="say"></div>
+  </section>
+
+  <section class="pass">
+    <div class="main">
+      <div class="head">BOARDING PASS &middot; 탑승권 &nbsp;<em>한양YK인터칼리지 에어</em></div>
+      <div class="route"><div><small>출발 FROM</small><b>HY-in</b></div><div class="pl">&#9992;</div><div style="text-align:right"><small>도착 TO</small><b>나의 전공</b></div></div>
+      <div class="meta">
+        <div><small>승객</small><b>2026-2학기 1·2학년</b></div>
+        <div><small>편명</small><b>IC2026</b></div>
+        <div><small>탑승 마감</small><b class="red">11. 6.(금) 17:00</b></div>
+        <div style="flex-basis:100%"><small>탑승구 GATE</small><b>HY-in 포털 &rarr; 신청 &rarr; 주전공배정신청(자율전공학부)</b></div>
+      </div>
+    </div>
+    <div class="stub"><div><small>좌석</small><br><b>1인 1석</b></div><div><small>대기 좌석</small><br><b class="no">없음</b></div><div class="bar mono">|||&#8201;||&#8201;|&#8201;|||&#8201;|&#8201;||</div></div>
+  </section>
+
+  <section class="serious">
+    <div class="t">&#127897; 기장 안내 &mdash; 여기서부터는 진지합니다</div>
+    <p class="g">오늘 17:00 이후에는 신청·변경이 불가능하며,<br>기간 내 미신청 시 신청 의사가 없는 것으로 간주합니다.</p>
+    <ul>
+      <li>신청 여부는 개별적으로 확인하거나 연락(전화·문자)드리지 않습니다.</li>
+      <li>전체 다전공 신청기간(11. 9.~11. 13. 예정)에는 주전공을 신청할 수 없고, 다전공은 경쟁 선발입니다.</li>
+      <li>다음 신청·변경 기회는 2027-1학기 신청 기간(4월~5월 초)입니다.</li>
+      <li>저장 후 화면 아래 <b style="color:#FFC400">신청내역</b>에 전공이 보이는지 꼭 확인하세요.</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <a class="go" href="./" id="go">&#9992; 지금 탑승하기 &rarr; 신청 안내</a>
+    <div class="links"><a href="grade1.html">1학년 상세 안내</a>·<a href="grade2.html">2학년 상세 안내</a>·<a href="https://happysnow-maker.github.io/yk-major-guide/manual.html">신청 매뉴얼</a></div>
+    <div class="done">&#9989; 이미 신청을 마쳤다면, 신청내역에서 저장된 것만 확인하세요. 탑승을 환영합니다!</div>
+  </section>
+
+  <footer>
+    전공 신청 행정 문의 <a href="mailto:intercollege@hanyang.ac.kr">intercollege@hanyang.ac.kr</a> · 전공 상담 <a href="mailto:lifedesign@hanyang.ac.kr">lifedesign@hanyang.ac.kr</a><br>
+    한양YK인터칼리지 에어(행정팀) · 학생 여러분의 성공적인 전공 선택을 응원합니다.
+  </footer>
+</div>
+
+<script>
+(function(){
+  var END=new Date('2026-11-06T17:00:00+09:00');
+  var flaps={};document.querySelectorAll('.flap').forEach(function(f){flaps[f.dataset.k]=f;});
+  var st=document.getElementById('status'),lbl=document.getElementById('lbl'),alertEl=document.getElementById('alert'),fc=document.getElementById('fc');
+  function set(k,v){var f=flaps[k];if(f.textContent!==v){f.textContent=v;f.classList.remove('flip');void f.offsetWidth;f.classList.add('flip');}}
+  function pad(n){return String(n).padStart(2,'0');}
+  function tick(){
+    var ms=END-new Date();
+    if(ms<=0){
+      ['d0','d1','d2','d3','d4','d5'].forEach(function(k){set(k,'0');});
+      lbl.textContent='탑승 마감';fc.textContent='CLOSED';fc.style.background='#4B5563';fc.style.animation='none';
+      alertEl.textContent='나의 전공행 IC2026편 탑승이 마감되었습니다';alertEl.style.animation='none';alertEl.style.background='#4B5563';
+      st.innerHTML='탑승구가 닫혔습니다. 신청해 주신 모든 승객께 감사드립니다.';
+      return false;
+    }
+    var s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor(s%3600/60),sec=s%60;
+    var hh=pad(Math.min(h,99)),mm=pad(m),ss=pad(sec);
+    set('d0',hh[0]);set('d1',hh[1]);set('d2',mm[0]);set('d3',mm[1]);set('d4',ss[0]);set('d5',ss[1]);
+    if(h>=24){var d=Math.floor(h/24);st.innerHTML='마감 <b>11. 6.(금) 17:00</b> · D-'+d;}
+    else if(h>=1) st.innerHTML='아직 늦지 않았습니다. <b>지금</b> 탑승하세요.';
+    else st.innerHTML='<b>1시간도 남지 않았습니다.</b> 접속이 몰리기 전에 지금 바로!';
+    return true;
+  }
+  if(tick()){var t=setInterval(function(){if(!tick())clearInterval(t);},1000);}
+
+  // 탑승 안내방송: 딩동 차임 + 음성
+  var btn=document.getElementById('pa'),say=document.getElementById('say'),ctx=null,busy=false;
+  function dingdong(t0){
+    [[659.25,0],[523.25,0.55]].forEach(function(n){
+      var o=ctx.createOscillator(),o2=ctx.createOscillator(),g=ctx.createGain();
+      o.type='sine';o2.type='sine';o.frequency.value=n[0];o2.frequency.value=n[0]*3;
+      var g2=ctx.createGain();g2.gain.value=0.12;
+      g.gain.setValueAtTime(0.0001,t0+n[1]);g.gain.exponentialRampToValueAtTime(0.35,t0+n[1]+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t0+n[1]+1.6);
+      o.connect(g);o2.connect(g2);g2.connect(g);g.connect(ctx.destination);
+      o.start(t0+n[1]);o2.start(t0+n[1]);o.stop(t0+n[1]+1.7);o2.stop(t0+n[1]+1.7);
+    });
+  }
+  function speak(text){
+    return new Promise(function(res){
+      if(!('speechSynthesis' in window)){setTimeout(res,1500);return;}
+      var u=new SpeechSynthesisUtterance(text);u.lang='ko-KR';u.rate=0.95;
+      var v=speechSynthesis.getVoices().filter(function(x){return /ko/i.test(x.lang);});if(v.length)u.voice=v[0];
+      u.onend=res;u.onerror=res;speechSynthesis.speak(u);setTimeout(res,12000);
+    });
+  }
+  function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
+  function remainText(){
+    var ms=END-new Date();if(ms<=0)return '탑승이 마감되었습니다.';
+    var m=Math.floor(ms/60000),h=Math.floor(m/60);m=m%60;
+    return '탑승 마감까지 '+(h?h+'시간 ':'')+m+'분 남았습니다.';
+  }
+  async function run(){
+    if(busy){busy=false;if('speechSynthesis' in window)speechSynthesis.cancel();btn.classList.remove('on');btn.setAttribute('aria-pressed','false');say.textContent='';return;}
+    busy=true;btn.classList.add('on');btn.setAttribute('aria-pressed','true');
+    ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')await ctx.resume();
+    dingdong(ctx.currentTime+0.05);say.textContent='딩 — 동 —';await wait(2000);if(!busy)return;
+    var lines=['나의 전공행, IC 2026편 손님께, 마지막 탑승 안내 말씀드립니다.',
+               '탑승구는, 에이치와이 인 포털, 주전공 배정 신청입니다.',
+               remainText(),
+               '오후 다섯 시 이후에는, 탑승하실 수 없습니다. 아직 탑승하지 않은 손님은, 지금 바로 탑승해 주시기 바랍니다.'];
+    for(var i=0;i<lines.length&&busy;i++){say.textContent=lines[i];await speak(lines[i]);}
+    if(busy){dingdong(ctx.currentTime+0.1);await wait(1800);}
+    busy=false;btn.classList.remove('on');btn.setAttribute('aria-pressed','false');btn.textContent='🔈 탑승 안내방송 다시 듣기';
+  }
+  btn.addEventListener('click',run);
+  if('speechSynthesis' in window){speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=function(){speechSynthesis.getVoices();};}
+})();
+</script>
+</body>
+</html>
